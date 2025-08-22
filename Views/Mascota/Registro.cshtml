@@ -1,0 +1,32 @@
+@model VeterinariaMVC.Models.Mascota
+
+<h2>Registro de Mascota</h2>
+
+<form asp-action="Registro" method="post">
+    <div>
+        <label>Nombre:</label>
+        <input asp-for="Nombre" />
+    </div>
+    <div>
+        <label>Especie:</label>
+        <input asp-for="Especie" />
+    </div>
+    <div>
+        <label>Raza:</label>
+        <input asp-for="Raza" />
+    </div>
+    <div>
+        <label>Edad:</label>
+        <input asp-for="Edad" type="number" />
+    </div>
+    <div>
+        <label>Propietario:</label>
+        <input asp-for="Propietario" />
+    </div>
+    <button type="submit">Registrar</button>
+</form>
+
+@if (ViewBag.Mensaje != null)
+{
+    <p>@ViewBag.Mensaje</p>
+}
