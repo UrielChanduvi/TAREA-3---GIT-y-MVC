@@ -2,31 +2,38 @@
 
 <h2>Registro de Mascota</h2>
 
-<form asp-action="Registro" method="post">
+@using (Html.BeginForm())
+{
+    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
     <div>
         <label>Nombre:</label>
-        <input asp-for="Nombre" />
+        @Html.TextBoxFor(m => m.Nombre)
+        @Html.ValidationMessageFor(m => m.Nombre, "", new { @class = "text-danger" })
     </div>
     <div>
         <label>Especie:</label>
-        <input asp-for="Especie" />
+        @Html.TextBoxFor(m => m.Especie)
+        @Html.ValidationMessageFor(m => m.Especie, "", new { @class = "text-danger" })
     </div>
     <div>
         <label>Raza:</label>
-        <input asp-for="Raza" />
+        @Html.TextBoxFor(m => m.Raza)
+        @Html.ValidationMessageFor(m => m.Raza, "", new { @class = "text-danger" })
     </div>
     <div>
         <label>Edad:</label>
-        <input asp-for="Edad" type="number" />
+        @Html.TextBoxFor(m => m.Edad, new { type = "number" })
+        @Html.ValidationMessageFor(m => m.Edad, "", new { @class = "text-danger" })
     </div>
     <div>
         <label>Propietario:</label>
-        <input asp-for="Propietario" />
+        @Html.TextBoxFor(m => m.Propietario)
+        @Html.ValidationMessageFor(m => m.Propietario, "", new { @class = "text-danger" })
     </div>
     <button type="submit">Registrar</button>
-</form>
 
-@if (ViewBag.Mensaje != null)
-{
-    <p>@ViewBag.Mensaje</p>
+    @if (ViewBag.Mensaje != null)
+    {
+        <p>@ViewBag.Mensaje</p>
+    }
 }
