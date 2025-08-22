@@ -1,0 +1,24 @@
+@model VeterinariaMVC.Models.Producto
+
+<h2>Agregar Producto</h2>
+
+@using (Html.BeginForm())
+{
+    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+    <div>
+        <label>Nombre:</label>
+        @Html.TextBoxFor(m => m.Nombre)
+        @Html.ValidationMessageFor(m => m.Nombre, "", new { @class = "text-danger" })
+    </div>
+    <div>
+        <label>Descripción:</label>
+        @Html.TextBoxFor(m => m.Descripcion)
+        @Html.ValidationMessageFor(m => m.Descripcion, "", new { @class = "text-danger" })
+    </div>
+    <div>
+        <label>Precio:</label>
+        @Html.TextBoxFor(m => m.Precio, new { type = "number", step = "0.01" })
+        @Html.ValidationMessageFor(m => m.Precio, "", new { @class = "text-danger" })
+    </div>
+    <button type="submit">Agregar</button>
+}
